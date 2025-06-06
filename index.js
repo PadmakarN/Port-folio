@@ -1,21 +1,26 @@
-function getexpdays(fromdatestr){
-const fromDate =new Date(fromdatestr);
-const toDate= new Date();
+function getExpDays(fromDateStr) {
+    const fromDate = new Date(fromDateStr);
+    const toDate = new Date();
 
-let years=toDate.getFullYear()-fromDate.getFullYear();
-let months=toDate.getMonth()-fromDate.getMonth();
-let days=toDate.getDate()-fromDate.getDate();
+    let years = toDate.getFullYear() - fromDate.getFullYear();
+    let months = toDate.getMonth() - fromDate.getMonth();
+    let days = toDate.getDate() - fromDate.getDate();
 
-if (days<0){
-months-=1;
-const prevmonth=new Date(toDate.getFullyear(),toDate.getMonth(),0);
-days+=prevMonth.getDate();
+    // Adjust days and months if necessary
+    if (days < 0) {
+        months -= 1;
+        const prevMonth = new Date(toDate.getFullYear(), toDate.getMonth(), 0);
+        days += prevMonth.getDate();
+    }
+
+    if (months < 0) {
+        years -= 1;
+        months += 12;
+    }
+
+    return { years, months, days };
 }
-if(month <0){
-year -=1;
-months +=12;}
 
-return {years,month,days};
-}
-
-alert('')
+// Update HTML element with formatted experience string
+const exp = getExpDays('01-Feb-2023');
+$('#totalexp').text(`${exp.years} years, ${exp.months} months, ${exp.days} days`);
