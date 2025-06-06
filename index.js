@@ -18,4 +18,4 @@ months +=12;}
 return {years,month,days};
 }
 
-$('#totalexp').text(getexpdays('01-Feb-2023'));
+alert('')
