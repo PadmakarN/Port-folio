@@ -26,7 +26,7 @@ const exp = getExpDays('01-Feb-2023');
 $('#totalexp').text(`${exp.years} years, ${exp.months} months, ${exp.days} days`);
 
 
-async function fetchgitdata(){
+async function fetchgitdata('https://github.com/Padmakarn'){
 try{
 const response=await fetch(`https://api.github.com/users/${username}`)
 const data=await response.json();
