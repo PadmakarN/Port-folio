@@ -24,3 +24,14 @@ function getExpDays(fromDateStr) {
 // Update HTML element with formatted experience string
 const exp = getExpDays('01-Feb-2023');
 $('#totalexp').text(`${exp.years} years, ${exp.months} months, ${exp.days} days`);
+
+
+async function fetchgitdata(){
+try{
+const response=await fetch(`https://api.github.com/users/${username}`)
+const data=await response.json();
+$
+}catch(error){
+alert('something went Wrong',error);
+}
+}
