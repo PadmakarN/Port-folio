@@ -30,7 +30,7 @@ async function fetchgitdata(username){
 try{
 const response=await fetch(`https://api.github.com/users/${username}`)
 const data=await response.json();
-alert data.avtar_url;
+return data.avtar_url;
 }catch(error){
 alert('something went Wrong',error);
 }
