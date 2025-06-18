@@ -42,7 +42,7 @@ $(#submit).click(function(){
 const name=$('#name')
 });
 
-function SendWhatsApp(){
+function SendWhatsApp(){debugger;
  const name=$('#nameinput').val();
  const email=$('#emailinput').val();
  const subject=$('#subjetinput').val();
