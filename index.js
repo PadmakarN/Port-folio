@@ -41,3 +41,18 @@ fetchgitdata('https://github.com/Padmakarn')
 $(#submit).click(function(){
 const name=$('#name')
 });
+
+function SendWhatsApp(){
+ const name=$('#nameinput').val();
+ const email=$('#emailinput').val();
+ const subject=$('#subjetinput').val();
+ const msg=$('#msginput').val();
+
+const data='Name:'+name+'
+'+'Email:'+email+'
+'+ Subject:'+subject+'
+'+Message:'+msg;
+
+href://wa.me/7057262105/text=data
+
+}
