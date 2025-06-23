@@ -42,17 +42,25 @@ $(#submit).click(function(){
 const name=$('#name')
 });
 
-function SendWhatsApp(){debugger;
- const name=$('#nameinput').val();
- const email=$('#emailinput').val();
- const subject=$('#subjetinput').val();
- const msg=$('#msginput').val();
+function SendWhatsApp() {
+    debugger;
+    const name = $('#nameinput').val();
+    const email = $('#emailinput').val();
+    const subject = $('#subjetinput').val(); // Note: typo in ID might be intended
+    const msg = $('#msginput').val();
 
-const data='Name:'+name+'
-'+'Email:'+email+'
-'+ Subject:'+subject+'
-'+Message:'+msg;
+    // Construct the message
+    const data = 'Name: ' + name + '\n' +
+                 'Email: ' + email + '\n' +
+                 'Subject: ' + subject + '\n' +
+                 'Message: ' + msg;
 
-href://wa.me/7057262105/text=data
+    // Encode the message for URL
+    const encodedData = encodeURIComponent(data);
 
+    // Redirect to WhatsApp
+    const phoneNumber = '7057262105'; // Include country code if needed, e.g., '917057262105'
+    const url = `https://wa.me/${phoneNumber}?text=${encodedData}`;
+
+    window.open(url, '_blank'); // Opens in new tab
 }
