@@ -39,25 +39,26 @@ alert('something went Wrong',error);
 fetchgitdata('https://github.com/Padmakarn')
 
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
 function SendWhatsApp() {
-    debugger;
     const name = $('#nameinput').val();
     const email = $('#emailinput').val();
-    const subject = $('#subjetinput').val(); // Note: typo in ID might be intended
+    const subject = $('#subjetinput').val();  // Make sure ID is correct
     const msg = $('#msginput').val();
 
-    // Construct the message
-    const data = 'Name: ' + name + '\n' +
-                 'Email: ' + email + '\n' +
-                 'Subject: ' + subject + '\n' +
-                 'Message: ' + msg;
+    if (!name || !email || !subject || !msg) {
+        alert("Please fill all fields.");
+        return;
+    }
 
-    // Encode the message for URL
-    const encodedData = encodeURIComponent(data);
+    const message = `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${msg}`;
+    const encodedMessage = encodeURIComponent(message);
 
-    // Redirect to WhatsApp
-    const phoneNumber = '7057262105'; // Include country code if needed, e.g., '917057262105'
-    const url = `https://wa.me/${phoneNumber}?text=${encodedData}`;
+    // Replace with full number including country code
+    const phoneNumber = "917057262105"; // e.g., for India: +91
+    const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
-    window.open(url, '_blank'); // Opens in new tab
+    window.open(url, '_blank');
 }
+</script>
