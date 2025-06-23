@@ -38,9 +38,6 @@ alert('something went Wrong',error);
 
 fetchgitdata('https://github.com/Padmakarn')
 
-$(#submit).click(function(){
-const name=$('#name')
-});
 
 function SendWhatsApp() {
     debugger;
