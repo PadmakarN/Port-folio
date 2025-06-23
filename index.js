@@ -39,8 +39,8 @@ alert('something went Wrong',error);
 fetchgitdata('https://github.com/Padmakarn')
 
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
+
+
 function SendWhatsApp() {
     const name = $('#nameinput').val();
     const email = $('#emailinput').val();
@@ -61,4 +61,4 @@ function SendWhatsApp() {
 
     window.open(url, '_blank');
 }
-</script>
+
