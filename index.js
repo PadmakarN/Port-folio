@@ -41,10 +41,10 @@ fetchgitdata('https://github.com/Padmakarn')
 
 
 
-function SendWhatsApp() {
+function SendWhatsApp() {debugger;
     const name = $('#nameinput').val();
     const email = $('#emailinput').val();
-    const subject = $('#subjetinput').val();  // Make sure ID is correct
+    const subject = $('#subjectinput').val();  // Make sure ID is correct
     const msg = $('#msginput').val();
 
     if (!name || !email || !subject || !msg) {
@@ -61,4 +61,34 @@ function SendWhatsApp() {
 
     window.open(url, '_blank');
 }
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.getElementById("contactForm");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault(); // prevent page reload
+
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        alert("Thank you! Your message has been sent.");
+        form.reset();
+      } else {
+        alert("Oops! There was a problem. Please try again.");
+      }
+    })
+    .catch(() => {
+      alert("Oops! There was a problem. Please try again.");
+    });
+  });
+});
 
