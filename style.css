@@ -1,86 +1,366 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
-*{
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+/* ==============================
+   GLOBAL CSS
+============================== */
+
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-.sidebar{
-    background-color: #a8a3a3;
-    width: 434px;
-    height: 100vh;
-    font-family: "Ubuntu", sans-serif;
-}
-.sidebar nav{
-    padding: 45px;
 
+html {
+    scroll-behavior: smooth;
 }
-.sidebar nav li{
-    list-style: none;
-    font-size: 30px;
-    padding: 33px 0;
+
+body {
+    font-family: "Ubuntu", sans-serif;
+    background: #f5f7fc;
+    color: #1e293b;
 }
-.sidebar nav li{
+
+a {
     text-decoration: none;
-    color: #0d0b0b;
 }
-.main{
-    /* background-color: yellow; */
-    width: 90vw;
-}
-.container{
+
+/* ==============================
+   MAIN LAYOUT
+============================== */
+
+.container {
     display: flex;
+    min-height: 100vh;
 }
-.infocontainer{
-    /* background-color: blue; */
-    height: 45vh;
-    width: 80vw;
-    margin: 144px auto;
+
+/* ==============================
+   SIDEBAR
+============================== */
+
+.sidebar {
+    background: linear-gradient(180deg, #0f172a, #172554);
+    width: 270px;
+    min-width: 270px;
+    min-height: 100vh;
+    font-family: "Ubuntu", sans-serif;
+    padding: 35px 20px;
+    box-shadow: 5px 0 25px rgba(15, 23, 42, 0.12);
+}
+
+.sidebar nav {
+    padding: 15px 0;
+}
+
+.sidebar nav ul {
+    list-style: none;
+}
+
+.sidebar nav li {
+    list-style: none;
+    margin: 12px 0;
+}
+
+.sidebar nav li a {
+    display: block;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #cbd5e1;
+    transition: all 0.3s ease;
+}
+
+.sidebar nav li a:hover {
+    color: #ffffff;
+    background: #2563eb;
+    padding-left: 28px;
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+}
+
+/* ==============================
+   MAIN CONTENT
+============================== */
+
+.main {
+    width: calc(100% - 270px);
+    min-width: 0;
+    padding: 30px;
+}
+
+/* ==============================
+   INFORMATION SECTION
+============================== */
+
+.infocontainer {
+    min-height: 500px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 45px;
     display: flex;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    background: #ffffff;
+    border-radius: 25px;
+    box-shadow: 0 15px 50px rgba(15, 23, 42, 0.07);
 }
-.devinfo{
+
+/* ==============================
+   DEVELOPER INFORMATION
+============================== */
+
+.devinfo {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    flex: 1;
 }
-.hello{
-font-size: 55px;
+
+.hello {
+    font-size: 28px;
+    font-weight: 500;
+    color: #64748b;
+    margin-bottom: 12px;
 }
-.name{
-    font-size: 35px;
-    font-weight: bold;
+
+.name {
+    font-size: clamp(35px, 4vw, 55px);
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 15px;
+    line-height: 1.2;
 }
-.about{
-    font-size: 25px;
+
+.about {
+    font-size: 23px;
+    font-weight: 500;
+    color: #2563eb;
+    margin-bottom: 20px;
 }
-.moreabout{
-    font-size: 18px;
+
+.moreabout {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #64748b;
+    max-width: 600px;
 }
-.buttons{
+
+/* ==============================
+   BUTTONS
+============================== */
+
+.buttons {
     margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
 }
-.buttons button{
-  padding: 9px;
-  border-radius: 9px;
-  background-color: rgb(129, 129, 247);
-  color: rgb(13, 13, 13);
-  font-size: 20px;
-  cursor: pointer;
+
+.buttons button {
+    padding: 13px 25px;
+    border: 2px solid #2563eb;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.2);
 }
-.buttons button:hover{
-    background-color: aqua;
+
+.buttons button:hover {
+    background: #0f172a;
+    border-color: #0f172a;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.2);
 }
-.devpic img{
-height: 40vh;
+
+/* ==============================
+   DEVELOPER IMAGE
+============================== */
+
+.devpic {
+    flex: 0 0 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.devpic img {
+    width: 100%;
+    max-width: 330px;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 25px;
+    border: 7px solid #eff6ff;
+    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.18);
+    transition: 0.4s ease;
+}
+
+.devpic img:hover {
+    transform: scale(1.04);
+}
+
+/* ==============================
+   PORTFOLIO / PROJECT IMAGES
+============================== */
+
+.portfolio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+}
+
 .portfolio .item {
-  width: 100%;           /* column ke width ke hisaab se adjust */
-  aspect-ratio: 1 / 1;   /* height = width → perfect square */
-  overflow: hidden;      /* extra part crop ho jayega */
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+    transition: 0.3s ease;
 }
 
 .portfolio .item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;     /* image stretch nahi hogi, crop ho kar fit hogi */
-  display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: 0.4s ease;
+}
+
+.portfolio .item:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(37, 99, 235, 0.15);
+}
+
+.portfolio .item:hover img {
+    transform: scale(1.08);
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
+
+@media (max-width: 992px) {
+
+    .sidebar {
+        width: 220px;
+        min-width: 220px;
+    }
+
+    .main {
+        width: calc(100% - 220px);
+        padding: 20px;
+    }
+
+    .infocontainer {
+        padding: 30px;
+        gap: 20px;
+    }
+
+    .devpic img {
+        height: 320px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-width: 0;
+        min-height: auto;
+        padding: 10px 15px;
+    }
+
+    .sidebar nav {
+        padding: 0;
+    }
+
+    .sidebar nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .sidebar nav li {
+        margin: 3px;
+    }
+
+    .sidebar nav li a {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+
+    .sidebar nav li a:hover {
+        padding-left: 12px;
+    }
+
+    .main {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .infocontainer {
+        flex-direction: column-reverse;
+        text-align: center;
+        margin: 20px auto;
+        padding: 30px 20px;
+        gap: 30px;
+    }
+
+    .devpic {
+        flex: auto;
+        width: 100%;
+    }
+
+    .devpic img {
+        width: 220px;
+        height: 250px;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .moreabout {
+        margin: auto;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hello {
+        font-size: 22px;
+    }
+
+    .name {
+        font-size: 34px;
+    }
+
+    .about {
+        font-size: 19px;
+    }
+
+    .moreabout {
+        font-size: 15px;
+    }
+
+    .buttons button {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .portfolio {
+        grid-template-columns: 1fr;
+    }
 }
